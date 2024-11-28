@@ -3,6 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const server = http.createServer(function(request, response){
+
+  //index.html
   if(request.method === "GET") {
     if(request.url === "/") {
       const pathUrl = path.join(__dirname,"../public/index.html");
@@ -16,6 +18,11 @@ const server = http.createServer(function(request, response){
       response.write(responseData);
       response.end();
     }
+  }
+
+  //input
+  if(request.method==="POST") {
+    console.log(request);
   }
 })
 
